@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, TextField, Button } from '@material-ui/core';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -23,9 +23,11 @@ const App = () => {
         formState: { errors },
     } = useForm({ resolver: yupResolver(SignupSchema) });
 
+    const [userId, setUserId] = useState('');
+
     return (
         <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-            <form onSubmit={handleSubmit(data => console.log(data))}>
+            <form onSubmit={handleSubmit(data => setUserId(data.userId))}>
                 <Box>
                     <Controller
                         name="userId"
@@ -48,6 +50,7 @@ const App = () => {
                         제출
                     </Button>
                 </Box>
+                <Box display="flex">결과 : {userId}</Box>
             </form>
         </Box>
     );
