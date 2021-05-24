@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const specialPattern = /[`~!@#$%^&*|'";:/={}?<>,.-]/;
+const specialPattern = /[~!@#$%^&*()_+|<>?:;{}'"/,.]/;
 
 const SignupSchema = yup.object().shape({
     userId: yup
