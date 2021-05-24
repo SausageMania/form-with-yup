@@ -28,3 +28,8 @@ const SignupSchema = yup.object().shape({
         }),
 });
 ```
+
+##발견한 문제
+specialPattern을 정규식 /gi로 작성하면 validation error가 됐다 안됐다 하는 오류가 발생.  
+console.log로 찍어봐서 확인해보니 true, false가 교차되어 출력됨.  
+-> 이유를 전혀 모르갰다... /gi는 '해당된 것 전부'라는 의미로 쓰이지 않나..?  
