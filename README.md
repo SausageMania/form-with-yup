@@ -36,8 +36,8 @@ react-spring으로 다양한 animation을 구현할 수 있다.
 ```javascript
 const AnimatedTextField = animated(TextField);
 ```
-이런 식으로 작성해야 한다. 
-기본적으로 style={{}}안에 작성하여 사용한다.
+이런 식으로 작성해야 한다.  
+적용할 animation은 useSpring으로 초기화한 후 컴포넌트의 style안에 작성하여 사용한다.
 ```javascript
 const { x } = useSpring({
     to: { x: 1 },
