@@ -1,9 +1,9 @@
-# react-hook-form with yup
+# react-hook-form with yup (ft. react-spring)
 
 ## react-hook-form (version 7)
-7버젼으로 넘어오면서 더 이상 as로 material-ui의 TextField 컴포넌트를 연결할 수 없음.  
-따라서 render을 이용하여 구현하였음.  
-yupSchema는 useForm안에 적용할 수 있음.  
+7버젼으로 넘어오면서 더 이상 as로 material-ui의 TextField 컴포넌트를 연결할 수 없다.  
+따라서 render을 이용하여 구현하였다.  
+yupSchema는 useForm안에 적용할 수 있다.  
 ```javascript
     const {
         handleSubmit,
@@ -13,8 +13,8 @@ yupSchema는 useForm안에 적용할 수 있음.
 ```
 
 ## yup
-yup을 써보니 굉장히 편하고 직관적임.  
-test함수를 통해 직접 custom validation 작성 가능.  
+yup을 써보니 굉장히 편하고 직관적이다.  
+test함수를 통해 직접 custom validation 작성 가능하다.  
 ```javascript
 const specialPattern = /[`~!@#$%^&*|'";:/={}?<>,.-]/;
 
@@ -58,6 +58,6 @@ style={{ height: '65px',
 
 
 ## 발견한 문제
-specialPattern을 정규식 /gi로 작성하면 validation error가 됐다 안됐다 하는 오류가 발생.  
-console.log로 찍어봐서 확인해보니 true, false가 교차되어 출력됨.  
+specialPattern을 정규식 /gi로 작성하면 validation error가 됐다 안됐다 하는 오류가 발생한다.  
+console.log로 찍어봐서 확인해보니 true, false가 교차되어 출력된다.  
 -> 이유를 전혀 모르갰다... /gi는 '해당된 것 전부'라는 의미로 쓰이지 않나..?  
