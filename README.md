@@ -29,6 +29,34 @@ const SignupSchema = yup.object().shape({
 });
 ```
 
+## react-spring
+react-spring으로 다양한 animation을 구현할 수 있다.  
+기존의 animation과 차이점은, 스프링처럼 움직인다는 것. 즉, 모션이 자연스럽다.  
+기본 default의 작성은 styled-component와 유사하기에 material-ui의 컴포넌트와 함께 사용하기 위해선  
+```javascript
+const AnimatedTextField = animated(TextField);
+```
+이런 식으로 작성해야 한다. 
+기본적으로 style={{}}안에 작성하여 사용한다.
+```javascript
+const { x } = useSpring({
+    to: { x: 1 },
+    config: { duration: 600 },
+});
+```
+```css
+style={{ height: '65px',
+    transform: x.to({
+        range: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
+        output: [0, -20, 20, -15, 15, -10, 10, -5, 0],
+    })
+    .to(x => `translate(${x}px, 0px)`),
+}}
+```
+
+이런 식으로 작성해야 한다.  
+
+
 ## 발견한 문제
 specialPattern을 정규식 /gi로 작성하면 validation error가 됐다 안됐다 하는 오류가 발생.  
 console.log로 찍어봐서 확인해보니 true, false가 교차되어 출력됨.  
